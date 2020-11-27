@@ -1,0 +1,22 @@
+
+j
+java:S2095""OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(®’Œ«ûÿÿÿÿ
+]
+java:S2095"HUse try-with-resources or close this "Connection" in a "finally" clause.(ÉØh
+g	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(§‚÷èıÿÿÿÿ
+I
+java:S1128".Remove this unused import 'java.util.Scanner'.(ÒÜÅ¸úÿÿÿÿ
+>
+java:S2115")Add password protection to this database.(ÉØh
+S	java:S106N"9Replace this use of System.out or System.err by a logger.(¢ÚèÃûÿÿÿÿ
+S	java:S106L"9Replace this use of System.out or System.err by a logger.(ş†­±üÿÿÿÿ
+S	java:S106K"9Replace this use of System.out or System.err by a logger.(×‚¼şÿÿÿÿ
+S	java:S106M"9Replace this use of System.out or System.err by a logger.(‚Òúğıÿÿÿÿ
+]	java:S125"<This block of commented-out lines of code should be removed.(¬ŒÌ¤ÿÿÿÿÿ8ÿ­Ê«à.
+b
+java:S2095"GUse try-with-resources or close this "Statement" in a "finally" clause.(Çõåùÿÿÿÿ
+P
+java:S1141A"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
+S	java:S106T"9Replace this use of System.out or System.err by a logger.(ÜÖ…Éúÿÿÿÿ
+N	java:S106U"9Replace this use of System.out or System.err by a logger.(ú•€Ë
+E	java:S108Q")Either remove or fill this block of code.(å¥‡8®¢ı®à.
