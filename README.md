@@ -3,11 +3,11 @@ FEUP TVVS Static Analysis Lecture
 
 This project has the proposal to show SonarLint and SonarCloud working with Intellij and Github Actions to code review a small Java H2 example.
 
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=kadubarral_tvvs-staticanalysis&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=kadubarral_tvvs-staticanalysis)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=kadubarral_tvvs-staticanalysis&metric=bugs)](https://sonarcloud.io/dashboard?id=kadubarral_tvvs-staticanalysis)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=kadubarral_tvvs-staticanalysis&metric=code_smells)](https://sonarcloud.io/dashboard?id=kadubarral_tvvs-staticanalysis)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=kadubarral_tvvs-staticanalysis&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=kadubarral_tvvs-staticanalysis)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=kadubarral_tvvs-staticanalysis&metric=security_rating)](https://sonarcloud.io/dashboard?id=kadubarral_tvvs-staticanalysis)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=kadubarral_java-simple-h2&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=kadubarral_java-simple-h2)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=kadubarral_java-simple-h2&metric=bugs)](https://sonarcloud.io/dashboard?id=kadubarral_java-simple-h2)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=kadubarral_java-simple-h2&metric=code_smells)](https://sonarcloud.io/dashboard?id=kadubarral_java-simple-h2)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=kadubarral_java-simple-h2&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=kadubarral_java-simple-h2)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=kadubarral_java-simple-h2&metric=security_rating)](https://sonarcloud.io/dashboard?id=kadubarral_java-simple-h2)
 
 ## Setup Activities
 Fork this project
