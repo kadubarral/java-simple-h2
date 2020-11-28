@@ -36,10 +36,10 @@ Static Test is not about to execute the code, but if you want to run locally you
 mvn clean compile exec:java
 ```
 
-### To help your work
-  * See the actual report of issues on SonarCloud
+#### To help your work
+* See the actual report of issues on SonarCloud
     * https://sonarcloud.io/dashboard?id=kadubarral_java-simple-h2
-  * Use SonarLint report on Intellij 
+* Use SonarLint report on Intellij 
 
 ## Send your code
 Commit and push
@@ -53,5 +53,5 @@ Create the PR
 ![PR](docs/github-PR.png)
 
 ### Group Members
-  * Kadu Barral
-  * Sadra Farshid
+* Kadu Barral
+* Sadra Farshid
