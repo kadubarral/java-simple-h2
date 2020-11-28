@@ -1,4 +1,4 @@
-package feup.tvvs;
+package io.barral;
 
 import java.net.InetAddress;
 import java.sql.Connection;
@@ -11,7 +11,7 @@ import java.sql.Timestamp;
 import java.util.Date;
 import org.h2.tools.DeleteDbFiles;
 
-public class staticanalisys {
+public class javaH2 {
 
     public static void main(String[] args) {
 

@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     
     <properties>
-        <exec.mainClass>io.barral.JavaH2</exec.mainClass>
+        <exec.mainClass>io.barral.javaH2</exec.mainClass>
 
         <maven.compiler.target>11</maven.compiler.target>
         <maven.compiler.source>11</maven.compiler.source>
