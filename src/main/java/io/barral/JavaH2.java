@@ -10,12 +10,14 @@ import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Properties;
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.h2.tools.DeleteDbFiles;
-
 import static java.sql.DriverManager.*;
 
 public class JavaH2 {
+
+    private static final Logger LOGGER = Logger.getLogger(JavaH2.class.getName());
 
     public static void main(String[] args) throws SQLException, UnknownHostException, InterruptedException {
 
@@ -82,24 +84,20 @@ public class JavaH2 {
                             String serverName = rs.getString(4);
 
                             //print query result to console
-                            System.out.println("activity: " + activityName);
-                            System.out.println("local: " + serverName);
-                            System.out.println("start: " + start);
-                            System.out.println("end: " + end);
+                            LOGGER.log(Level.INFO,"activity: {0} ", activityName);
+                            LOGGER.log(Level.INFO,"local: {0} ", serverName);
+                            LOGGER.log(Level.INFO,"start: {0} ", start);
+                            LOGGER.log(Level.INFO,"end: {0} ", end);
                             if (total == 0) {
                                 throw new UnsupportedOperationException("Can't divide by zero!");
                             } else {
-                                System.out.println("% done: " + (count / total) * 100);
+                                LOGGER.log(Level.INFO,"% done: {0} ", (count / total) * 100);
                             }
-                            System.out.println("--------------------------");
-
                             count++;
                         }
                     }
-                } catch (SQLException throwables) {
-                    throwables.printStackTrace();
-                } catch (UnsupportedOperationException e) {
-                    e.printStackTrace();
+                } catch (SQLException | UnsupportedOperationException e) {
+                    LOGGER.log(Level.SEVERE, "context", e);
                 }
             }
         }
