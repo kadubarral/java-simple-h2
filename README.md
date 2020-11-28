@@ -1,7 +1,7 @@
 # TVVS Static Analysis
 FEUP TVVS Static Analysis Lecture
 
-This project has the proposal to show SonarLint and SonarCloud working with Intellij and Github Actions to code review a small Java H2 example.
+This project has the proposal to show SonarLint and SonarCloud working with Intellij and Github Actions to review the code for a small Java H2 example.
 
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=kadubarral_java-simple-h2&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=kadubarral_java-simple-h2)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=kadubarral_java-simple-h2&metric=bugs)](https://sonarcloud.io/dashboard?id=kadubarral_java-simple-h2)
