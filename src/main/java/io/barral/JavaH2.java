@@ -48,7 +48,7 @@ public class JavaH2 {
                 stat.execute("CREATE TABLE ACTIVITY (ID INTEGER, STARTTIME datetime, ENDTIME datetime, SERVERNAME VARCHAR(200), ACTIVITYNAME VARCHAR(200), PRIMARY KEY (ID))");
 
                 //prepared statement
-                try (PreparedStatement prep = conn.prepareStatement("INSER INTO ACTIVITY (ID, STARTTIME, ENDTIME, SERVERNAME, ACTIVITYNAME) VALUES (?,?,?,?,?)")) {
+                try (PreparedStatement prep = conn.prepareStatement("INSERT INTO ACTIVITY (ID, STARTTIME, ENDTIME, SERVERNAME, ACTIVITYNAME) VALUES (?,?,?,?,?)")) {
 
                     //insert 10 row data
                     for (int i = 0; i < 10; i++) {

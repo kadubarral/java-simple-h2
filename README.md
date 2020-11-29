@@ -9,6 +9,8 @@ This project has the proposal to show SonarLint and SonarCloud working with Inte
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=kadubarral_java-simple-h2&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=kadubarral_java-simple-h2)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=kadubarral_java-simple-h2&metric=security_rating)](https://sonarcloud.io/dashboard?id=kadubarral_java-simple-h2)
 
+![Unit Test](https://github.com/kadubarral/java-simple-h2/workflows/Build/badge.svg)
+
 ## Setup Activities
 Fork this project
 ![PR](docs/github-FORK.png)
