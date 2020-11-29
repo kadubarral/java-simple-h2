@@ -19,32 +19,27 @@ public class JavaH2 {
 
     private static final Logger LOGGER = Logger.getLogger(JavaH2.class.getName());
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException, SQLException, UnknownHostException {
 
         JavaH2.insertAndPrint();
 
     }
 
-    public static Integer insertAndPrint() {
+    public static Integer insertAndPrint() throws SQLException, UnknownHostException, InterruptedException {
 
         // delete the database named 'test' in the user home directory
         DeleteDbFiles.execute("~", "test", true);
 
         String user = "user";
         char[] password = {'t', 'i', 'a', 'E', 'T', 'r', 'p'};
-        String servername = null;
-        try {
-            servername = InetAddress.getLocalHost().getHostName();
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-        }
+        String servername = InetAddress.getLocalHost().getHostName();
 
         Properties prop = new Properties();
         prop.setProperty("user", user);
         prop.put("password", password);
 
-        Double total = 0.0;
-        Integer count = 0;
+        double total;
+        int count = 0;
 
         try (Connection conn = getConnection("jdbc:h2:~/test", prop)) {
             try (Statement stat = conn.createStatement()) {
@@ -53,7 +48,7 @@ public class JavaH2 {
                 stat.execute("CREATE TABLE ACTIVITY (ID INTEGER, STARTTIME datetime, ENDTIME datetime, SERVERNAME VARCHAR(200), ACTIVITYNAME VARCHAR(200), PRIMARY KEY (ID))");
 
                 //prepared statement
-                try (PreparedStatement prep = conn.prepareStatement("INSERT INTO ACTIVITY (ID, STARTTIME, ENDTIME, SERVERNAME, ACTIVITYNAME) VALUES (?,?,?,?,?)")) {
+                try (PreparedStatement prep = conn.prepareStatement("INSER INTO ACTIVITY (ID, STARTTIME, ENDTIME, SERVERNAME, ACTIVITYNAME) VALUES (?,?,?,?,?)")) {
 
                     //insert 10 row data
                     for (int i = 0; i < 10; i++) {
@@ -69,8 +64,6 @@ public class JavaH2 {
                     }
                     conn.setAutoCommit(false);
                     prep.executeBatch();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
                 }
                 conn.setAutoCommit(true);
 
@@ -109,15 +102,12 @@ public class JavaH2 {
                             } else {
                                 LOGGER.log(Level.INFO,"% done: {0} ", (count / total) * 100);
                             }
-
                         }
                     }
                 } catch (SQLException | UnsupportedOperationException e) {
                     LOGGER.log(Level.SEVERE, "context", e);
                 }
             }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
         }
         return count;
     }
