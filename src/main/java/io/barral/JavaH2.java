@@ -19,18 +19,32 @@ public class JavaH2 {
 
     private static final Logger LOGGER = Logger.getLogger(JavaH2.class.getName());
 
-    public static void main(String[] args) throws SQLException, UnknownHostException, InterruptedException {
+    public static void main(String[] args) {
+
+        JavaH2.insertAndPrint();
+
+    }
+
+    public static Integer insertAndPrint() {
 
         // delete the database named 'test' in the user home directory
         DeleteDbFiles.execute("~", "test", true);
 
         String user = "user";
         char[] password = {'t', 'i', 'a', 'E', 'T', 'r', 'p'};
-        String servername = InetAddress.getLocalHost().getHostName();
+        String servername = null;
+        try {
+            servername = InetAddress.getLocalHost().getHostName();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
 
         Properties prop = new Properties();
         prop.setProperty("user", user);
         prop.put("password", password);
+
+        Double total = 0.0;
+        Integer count = 0;
 
         try (Connection conn = getConnection("jdbc:h2:~/test", prop)) {
             try (Statement stat = conn.createStatement()) {
@@ -55,18 +69,18 @@ public class JavaH2 {
                     }
                     conn.setAutoCommit(false);
                     prep.executeBatch();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
                 conn.setAutoCommit(true);
 
                 ResultSet rst;
                 rst = stat.executeQuery("Select count(*) from ACTIVITY");
-                double total;
                 if (rst.next()) {
                     total = rst.getDouble(1);
                 } else {
                     total = 0.0;
                 }
-                Integer count = 1;
 
                 //query to database
                 try {
@@ -77,6 +91,8 @@ public class JavaH2 {
                         rs = prep2.executeQuery();
 
                         while (rs.next()) {
+
+                            count++;
 
                             Date start = rs.getTimestamp(1);
                             Date end = rs.getTimestamp(2);
@@ -93,13 +109,16 @@ public class JavaH2 {
                             } else {
                                 LOGGER.log(Level.INFO,"% done: {0} ", (count / total) * 100);
                             }
-                            count++;
+
                         }
                     }
                 } catch (SQLException | UnsupportedOperationException e) {
                     LOGGER.log(Level.SEVERE, "context", e);
                 }
             }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
+        return count;
     }
 }
