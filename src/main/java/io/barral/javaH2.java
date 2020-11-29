@@ -5,7 +5,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.Date;
@@ -14,6 +13,15 @@ import org.h2.tools.DeleteDbFiles;
 public class javaH2 {
 
     public static void main(String[] args) {
+
+        javaH2.insertAndPrint();
+
+    }
+
+    public static Integer insertAndPrint() {
+
+        Double total = 0.0;
+        Integer count = 0;
 
         try {
 
@@ -33,7 +41,7 @@ public class javaH2 {
             PreparedStatement prep = conn.prepareStatement("INSERT INTO ACTIVITY (ID, STARTTIME, ENDTIME, SERVERNAME, ACTIVITYNAME) VALUES (?,?,?,?,?)");
 
             //insert 10 row data
-            for (int i = 0; i<10; i++){
+            for (int i = 1; i <= 10; i++) {
                 prep.setLong(1, i);
                 prep.setTimestamp(2, new Timestamp(System.currentTimeMillis()));
                 Thread.sleep(500);
@@ -48,26 +56,24 @@ public class javaH2 {
             prep.executeBatch();
             conn.setAutoCommit(true);
 
-            double num1=0.0, num2=0.0;
-            double sum=0.0, sub=0.0, multiple=0.0;
-            double divide=0.0, remainder=0.0, power=0.0;
-            char operator='\0';
+            double num1 = 0.0, num2 = 0.0;
+            double sum = 0.0, sub = 0.0, multiple = 0.0;
+            double divide = 0.0, remainder = 0.0, power = 0.0;
+            char operator = '\0';
             boolean nextOperation = true;
-            char ch='\0';
+            char ch = '\0';
 
             ResultSet rst = stat.executeQuery("Select count(*) from ACTIVITY");
-            Double total = 0.0;
-            if (rst.next())
-            {
+            if (rst.next()) {
                 total = rst.getDouble(1);
             }
-
-            Integer count = 1;
 
             //query to database
             try {
                 ResultSet rs = stat.executeQuery("Select STARTTIME, ENDTIME, ACTIVITYNAME, SERVERNAME from ACTIVITY where SERVERNAME = '" + servername + "'");
                 while (rs.next()) {
+
+                    count++;
 
                     Date start = rs.getTimestamp(1);
                     Date end = rs.getTimestamp(2);
@@ -79,13 +85,11 @@ public class javaH2 {
                     System.out.println("local: " + serverName);
                     System.out.println("start: " + start);
                     System.out.println("end: " + end);
-                    System.out.println("% done: " + (count/total)*100);
+                    System.out.println("% done: " + (count / total) * 100.00);
                     System.out.println("--------------------------");
-
-                    count++;
                 }
                 rs.close();
-            } catch (SQLException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
             //close connection
@@ -93,6 +97,6 @@ public class javaH2 {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        return count;
     }
 }
