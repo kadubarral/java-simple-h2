@@ -13,6 +13,7 @@ This project has the proposal to show SonarLint and SonarCloud working with Inte
 
 ## Setup Activities
 Fork this project
+
 ![PR](docs/github-FORK.png)
 
 Clone the project that you forked
