@@ -20,9 +20,7 @@ public class JavaH2 {
     private static final Logger LOGGER = Logger.getLogger(JavaH2.class.getName());
 
     public static void main(String[] args) throws InterruptedException, SQLException, UnknownHostException {
-
         JavaH2.insertAndPrint();
-
     }
 
     public static Integer insertAndPrint() throws SQLException, UnknownHostException, InterruptedException {
